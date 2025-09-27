@@ -1,0 +1,1856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ibrahim Muhammad Ganako | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: #1f2937;
+      background-color: #f9fafb;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    /* Navbar styles */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1rem 0;
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-scrolled {
+      padding: 0.75rem 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .navbar-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #3b82f6;
+      text-decoration: none;
+    }
+    
+    .navbar-menu {
+      display: flex;
+      list-style: none;
+    }
+    
+    .navbar-item {
+      margin-left: 2rem;
+    }
+    
+    .navbar-link {
+      font-weight: 500;
+      color: #4b5563;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .navbar-link:hover {
+      color: #3b82f6;
+    }
+    
+    .mobile-menu-button {
+      display: none;
+    }
+    
+    .mobile-menu {
+      display: none;
+    }
+    
+    /* Hero section */
+    .hero {
+      position: relative;
+      height: 100vh;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+    }
+    
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 45%;
+      height: 100%;
+      background-color: #f0f9ff;
+      z-index: 0;
+      clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+    }
+    
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    .hero-text {
+      max-width: 600px;
+    }
+    
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      color: #1f2937;
+    }
+    
+    .hero-title span {
+      background: linear-gradient(to right, #3b82f6, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: #6b7280;
+      margin-bottom: 2rem;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .hero-button {
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .primary-button {
+      background-color: #3b82f6;
+      color: white;
+    }
+    
+    .primary-button:hover {
+      background-color: #2563eb;
+      transform: translateY(-2px);
+    }
+    
+    .secondary-button {
+      background-color: #e5e7eb;
+      color: #4b5563;
+    }
+    
+    .secondary-button:hover {
+      background-color: #d1d5db;
+      transform: translateY(-2px);
+    }
+    
+    .hero-image-container {
+      position: relative;
+    }
+    
+    .hero-image {
+      width: 100%;
+      max-width: 450px;
+      border-radius: 1rem;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    .hero-badge {
+      position: absolute;
+      padding: 0.75rem 1rem;
+      background-color: white;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    
+    .badge-1 {
+      top: 10%;
+      left: -15%;
+    }
+    
+    .badge-2 {
+      bottom: 10%;
+      right: -15%;
+    }
+    
+    /* Section styling */
+    .section {
+      padding: 5rem 0;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .section-divider {
+      width: 5rem;
+      height: 0.25rem;
+      background-color: #3b82f6;
+      margin: 0 auto 2.5rem;
+      border-radius: 0.25rem;
+    }
+    
+    .section-description {
+      font-size: 1.25rem;
+      color: #6b7280;
+      max-width: 48rem;
+      margin: 0 auto;
+    }
+    
+    /* About section */
+    .about {
+      background-color: white;
+    }
+    
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+    
+    .about-text p {
+      margin-bottom: 1.5rem;
+      color: #4b5563;
+      font-size: 1.125rem;
+    }
+    
+    .about-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .about-info h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: #1f2937;
+    }
+    
+    .about-info-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 0.5rem;
+    }
+    
+    .about-info-icon {
+      margin-right: 0.5rem;
+      color: #3b82f6;
+      flex-shrink: 0;
+    }
+    
+    .about-services {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    
+    .about-service {
+      background-color: #f9fafb;
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+    
+    .service-icon {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    
+    .service-icon-bg {
+      padding: 0.75rem;
+      border-radius: 9999px;
+      margin-right: 1rem;
+    }
+    
+    .service-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    
+    .service-description {
+      color: #6b7280;
+    }
+    
+    .about-mission {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      background: linear-gradient(to right, #3b82f6, #8b5cf6);
+      color: white;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    
+    .about-mission h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    
+    /* Skills section */
+    .skills {
+      background-color: #f9fafb;
+    }
+    
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+    
+    .skills-card {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .skills-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    
+    .skills-card-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .skills-icon-bg {
+      padding: 0.75rem;
+      border-radius: 9999px;
+      margin-right: 1rem;
+    }
+    
+    .skills-card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+    
+    .skill-item {
+      margin-bottom: 1rem;
+    }
+    
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.25rem;
+    }
+    
+    .skill-name {
+      color: #4b5563;
+      font-weight: 500;
+    }
+    
+    .skill-percentage {
+      font-weight: 500;
+    }
+    
+    .progress-bar {
+      height: 0.5rem;
+      background-color: #e5e7eb;
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+    
+    .progress-indicator {
+      height: 100%;
+      border-radius: 9999px;
+    }
+    
+    .primary-indicator {
+      background-color: #3b82f6;
+    }
+    
+    .secondary-indicator {
+      background-color: #10b981;
+    }
+    
+    .accent-indicator {
+      background-color: #8b5cf6;
+    }
+    
+    .tools-container {
+      margin-top: 4rem;
+    }
+    
+    .tools-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .tools-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem 2rem;
+    }
+    
+    .tool-item {
+      display: flex;
+      align-items: center;
+      background-color: white;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .tool-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    
+    .tool-icon {
+      margin-right: 0.5rem;
+    }
+    
+    .tool-name {
+      font-weight: 500;
+    }
+    
+    /* Projects section */
+    .projects {
+      background-color: white;
+    }
+    
+    .projects-filter {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    
+    .filter-button {
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .filter-button-active {
+      background-color: #3b82f6;
+      color: white;
+    }
+    
+    .filter-button-inactive {
+      background-color: #e5e7eb;
+      color: #4b5563;
+    }
+    
+    .filter-button-inactive:hover {
+      background-color: #d1d5db;
+    }
+    
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+    
+    .project-card {
+      border-radius: 0.75rem;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    
+    .project-image-container {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+    }
+    
+    .project-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .project-card:hover .project-image {
+      transform: scale(1.05);
+    }
+    
+    .project-image-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem;
+    }
+    
+    .project-card:hover .project-image-overlay {
+      opacity: 1;
+    }
+    
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .project-tag {
+      padding: 0.25rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+    }
+    
+    .project-tag-primary {
+      background-color: rgba(59, 130, 246, 0.9);
+    }
+    
+    .project-overlay-title {
+      color: white;
+      font-weight: 700;
+      font-size: 1.125rem;
+    }
+    
+    .project-content {
+      padding: 1.5rem;
+      background-color: white;
+    }
+    
+    .project-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #1f2937;
+    }
+    
+    .project-description {
+      color: #6b7280;
+      margin-bottom: 1rem;
+    }
+    
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .project-link {
+      display: flex;
+      align-items: center;
+      color: #3b82f6;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .project-link:hover {
+      color: #2563eb;
+    }
+    
+    .project-link-secondary {
+      color: #6b7280;
+    }
+    
+    .project-link-secondary:hover {
+      color: #4b5563;
+    }
+    
+    .project-link-icon {
+      margin-right: 0.5rem;
+    }
+    
+    /* Contact section */
+    .contact {
+      background-color: #f9fafb;
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    
+    .contact-form-container {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .contact-form-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #1f2937;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #4b5563;
+      font-weight: 500;
+    }
+    
+    .form-input, .form-textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #d1d5db;
+      border-radius: 0.5rem;
+      font-family: inherit;
+      font-size: 1rem;
+      color: #1f2937;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .form-input:focus, .form-textarea:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    }
+    
+    .form-textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    
+    .contact-info-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    .contact-info {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .contact-info-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #1f2937;
+    }
+    
+    .contact-info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .contact-icon-container {
+      padding: 0.75rem;
+      border-radius: 9999px;
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+    
+    .contact-item-content h4 {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: #1f2937;
+    }
+    
+    .contact-item-content a {
+      color: #6b7280;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .contact-item-content a:hover {
+      color: #3b82f6;
+    }
+    
+    .contact-social {
+      margin-top: 2rem;
+    }
+    
+    .contact-social h4 {
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #1f2937;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      background-color: #f3f4f6;
+      border-radius: 9999px;
+      color: #6b7280;
+      transition: all 0.3s ease;
+    }
+    
+    .social-link:hover {
+      background-color: #e5e7eb;
+      color: #3b82f6;
+      transform: translateY(-3px);
+    }
+    
+    .contact-cta {
+      background: linear-gradient(to right, #3b82f6, #8b5cf6);
+      padding: 2rem;
+      border-radius: 0.75rem;
+      color: white;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    
+    .contact-cta-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .contact-cta-text {
+      margin-bottom: 1.5rem;
+    }
+    
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.75rem 1.5rem;
+      background-color: white;
+      color: #3b82f6;
+      font-weight: 600;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .cta-button:hover {
+      background-color: #f3f4f6;
+      transform: translateY(-3px);
+    }
+    
+    .cta-button-icon {
+      margin-left: 0.5rem;
+    }
+    
+    /* Footer */
+    .footer {
+      background-color: #1f2937;
+      color: white;
+      padding: 3rem 0;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2.5rem;
+    }
+    
+    .footer-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-description {
+      color: #9ca3af;
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .footer-social-link {
+      color: #9ca3af;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-social-link:hover {
+      color: white;
+    }
+    
+    .footer-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-link-item {
+      margin-bottom: 0.5rem;
+    }
+    
+    .footer-link {
+      color: #9ca3af;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-link:hover {
+      color: white;
+    }
+    
+    .footer-newsletter-form {
+      display: flex;
+    }
+    
+    .footer-input {
+      flex-grow: 1;
+      padding: 0.75rem;
+      background-color: #374151;
+      border: none;
+      border-radius: 0.5rem 0 0 0.5rem;
+      color: white;
+    }
+    
+    .footer-input:focus {
+      outline: none;
+    }
+    
+    .footer-button {
+      padding: 0.75rem;
+      background-color: #3b82f6;
+      border: none;
+      border-radius: 0 0.5rem 0.5rem 0;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .footer-button:hover {
+      background-color: #2563eb;
+    }
+    
+    .footer-copyright {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid #374151;
+      text-align: center;
+      color: #9ca3af;
+    }
+    
+    /* Media queries */
+    @media (max-width: 1024px) {
+      .hero-title {
+        font-size: 3rem;
+      }
+      
+      .skills-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .navbar-menu {
+        display: none;
+      }
+      
+      .mobile-menu-button {
+        display: block;
+        background: none;
+        border: none;
+        color: #4b5563;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+      
+      .mobile-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: white;
+        padding: 1rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+      
+      .mobile-menu.show {
+        display: block;
+      }
+      
+      .mobile-menu-list {
+        list-style: none;
+      }
+      
+      .mobile-menu-item {
+        margin-bottom: 1rem;
+      }
+      
+      .mobile-menu-link {
+        display: block;
+        padding: 0.5rem;
+        color: #4b5563;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-image-container {
+        order: -1;
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: center;
+      }
+      
+      .hero-badge {
+        display: none;
+      }
+      
+      .about-grid, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .about-info-grid, .about-services {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+      }
+      
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav id="navbar" class="navbar">
+    <div class="container navbar-container">
+      <a href="#navbar" class="navbar-logo">Ibrahim Muhammad Ganako</a>
+      
+      <ul class="navbar-menu">
+        <li class="navbar-item"><a href="#about" class="navbar-link">About</a></li>
+        <li class="navbar-item"><a href="#skills" class="navbar-link">Skills</a></li>
+        <li class="navbar-item"><a href="#projects" class="navbar-link">Projects</a></li>
+        <li class="navbar-item"><a href="#contact" class="navbar-link">Contact</a></li>
+      </ul>
+      
+      <button id="mobile-menu-button" class="mobile-menu-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+      
+      <div id="mobile-menu" class="mobile-menu">
+        <ul class="mobile-menu-list">
+          <li class="mobile-menu-item"><a href="#about" class="mobile-menu-link">About</a></li>
+          <li class="mobile-menu-item"><a href="#skills" class="mobile-menu-link">Skills</a></li>
+          <li class="mobile-menu-item"><a href="#projects" class="mobile-menu-link">Projects</a></li>
+          <li class="mobile-menu-item"><a href="#contact" class="mobile-menu-link">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-bg"></div>
+    <div class="container hero-content">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <h1 class="hero-title">Hi, I'm <span>Ibrahim Muhammad Ganako</span><br>Full Stack Developer</h1>
+          <p class="hero-subtitle">I build beautiful, responsive web applications with modern technologies. Focused on creating elegant solutions to complex problems.</p>
+          
+          <div class="hero-buttons">
+            <a href="#projects" class="hero-button primary-button">View My Work</a>
+            <a href="#contact" class="hero-button secondary-button">Get In Touch</a>
+          </div>
+        </div>
+
+ <div class="hero-image-container">
+          <img src="gpt.jpg" alt="Ganako Jr" class="hero-image">
+          
+          <div class="hero-badge badge-1">
+            <div class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+              <span class="ml-1">2+ Years Experience</span>
+            </div>
+          </div>
+          
+          <div class="hero-badge badge-2">
+            <div class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              <span class="ml-1">25+ Projects Completed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- About Section -->
+  <section id="about" class="section about">
+    <div class="container">
+      <div class="section-header">
+<pre>
+
+
+
+
+
+
+
+
+
+</pre>
+        <h2 class="section-title">About Me</h2>
+        <div class="section-divider"></div>
+      </div>
+      
+      <div class="about-grid">
+        <div class="about-text">
+          <p>Hello! I'm Ibrahim, a passionate developer with over 2 years of experience building web applications. I specialize in creating clean, efficient, and user-friendly digital solutions that solve real-world problems.</p>
+          
+          <p>My journey in tech began at the Ameer Ventures Computer And Coding Center where I earned my Certificate in Full Stack Web Programming. Since then, I've worked with startups, honing my skills and expanding my knowledge base.</p>
+          
+          <p>When I'm not coding, you can find me reading Qur'an, playing games, or playing football. I believe that diverse experiences fuel creativity and innovation in tech.</p>
+          
+          <div class="about-info-grid">
+            <div class="about-info">
+              <h3>Education</h3>
+              <ul>
+                <li class="about-info-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="about-info-icon"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                  <span>Certificate in Full Stack Web Programming<br><span class="text-sm text-gray-500">Ameer Ventures Computer and Coding Center</span></span>
+                </li>
+                <li class="about-info-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="about-info-icon"><path d="M8.21 13.89L7 23l2.5-1.5L12 23l2.5-1.5L17 23l-1.21-9.11"></path><path d="M6 9h12v2a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V9z"></path><path d="M6 4h12v5H6z"></path><path d="M15 2H9"></path></svg>
+                  <span>Certicate In Photography<br><span class="text-sm text-gray-500">Toolz Photography</span></span>
+                </li>
+              </ul>
+            </div>
+            <div class="about-info">
+              <h3>Experience</h3>
+              <ul>
+                <li class="about-info-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="about-info-icon"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  <span>Senior Developer<br><span class="text-sm text-gray-500">TechCorp Inc. (2024-Present)</span></span>
+                </li>
+                <li class="about-info-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="about-info-icon"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  <span>Frontend Developer<br><span class="text-sm text-gray-500">WebSolutions (2023-2024)</span></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <div class="about-services">
+            <div class="about-service">
+              <div class="service-icon">
+                <div class="service-icon-bg" style="background-color: #dbeafe;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                </div>
+                <h3 class="service-title">Web Development</h3>
+              </div>
+              <p class="service-description">Building responsive, accessible websites and web applications with modern frameworks.</p>
+            </div>
+            
+            <div class="about-service">
+              <div class="service-icon">
+                <div class="service-icon-bg" style="background-color: #dcfce7;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19c-7-4-6-10 0-14"></path><path d="M5 19c-7-4-6-10 0-14"></path><path d="M19 19c7-4 6-10 0-14"></path></svg>
+                </div>
+                <h3 class="service-title">UI/UX Design</h3>
+              </div>
+              <p class="service-description">Creating intuitive, user-centered designs that balance aesthetics and functionality.</p>
+            </div>
+            
+            <div class="about-service">
+              <div class="service-icon">
+                <div class="service-icon-bg" style="background-color: #f3e8ff;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                </div>
+                <h3 class="service-title">Mobile Development</h3>
+              </div>
+              <p class="service-description">Developing cross-platform mobile applications with React Native and Flutter.</p>
+            </div>
+            
+            <div class="about-service">
+              <div class="service-icon">
+                <div class="service-icon-bg" style="background-color: #fef3c7;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                </div>
+                <h3 class="service-title">Backend Systems</h3>
+              </div>
+              <p class="service-description">Building robust server-side applications and APIs with Node.js and Python.</p>
+            </div>
+          </div>
+          
+          <div class="about-mission">
+            <h3>My Mission</h3>
+            <p class="mb-4">To create technology that empowers people and makes a positive impact in their lives.</p>
+            <p>"Code is like humor. When you have to explain it, it's bad." — Cory House</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Skills Section -->
+  <section id="skills" class="section skills">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Skills & Expertise</h2>
+        <div class="section-divider"></div>
+        <p class="section-description">I've developed a diverse skill set that allows me to tackle projects from concept to completion.</p>
+      </div>
+      
+      <div class="skills-grid">
+        <!-- Frontend Skills -->
+        <div class="skills-card">
+          <div class="skills-card-header">
+            <div class="skills-icon-bg" style="background-color: #dbeafe;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            </div>
+            <h3 class="skills-card-title">Frontend Development</h3>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">React & React Native</span>
+                <span class="skill-percentage" style="color: #3b82f6;">85%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-indicator primary-indicator" style="width: 85%;"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">JavaScript / TypeScript</span>
+                <span class="skill-percentage" style="color: #3b82f6;">90%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-indicator primary-indicator" style="width: 90%;"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">HTML5 & CSS3</span>
+                <span class="skill-percentage" style="color: #3b82f6;">98%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-indicator primary-indicator" style="width: 98%;"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Tailwind CSS</span>
+                <span class="skill-percentage" style="color: #3b82f6;">90%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-indicator primary-indicator" style="width: 90%;"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Next.js</span>
+                <span class="skill-percentage" style="color: #3b82f6;">85%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-indicator primary-indicator" style="width: 85%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Backend Skills -->
+        <div class="skills-card">
+          <div class="skills-card-header">
+            <div class="skills-icon-bg" style="background-color: #dcfce7;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+            </div>
+            <h3 class="skills-card-title">Backend Development</h3>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Node.js & Express</span>
+                <span class="skill-percentage" style="color: #10b981;">90%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-indicator secondary-indicator" style="width: 90%;"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Python & Django</span>
+                <span class="skill-percentage" style="color: #10b981;">80%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-indicator secondary-indicator" style="width: 80%;"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">RESTful APIs</span>
+                <span class="skill-percentage" style="color: #10b981;">95%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-indicator secondary-indicator" style="width: 95%;"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">SQL & NoSQL Databases</span>
+                <span class="skill-percentage" style="color: #10b981;">85%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-indicator secondary-indicator" style="width: 85%;"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">GraphQL</span>
+                <span class="skill-percentage" style="color: #10b981;">75%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-indicator secondary-indicator" style="width: 75%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Other Skills -->
+        <div class="skills-card">
+          <div class="skills-card-header">
+            <div class="skills-icon-bg" style="background-color: #f3e8ff;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line></svg>
+            </div>
+            <h3 class="skills-card-title">Other Skills</h3>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">UI/UX Design</span>
+                <span class="skill-percentage" style="color: #8b5cf6;">85%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-indicator accent-indicator" style="width: 85%;"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">DevOps & CI/CD</span>
+                <span class="skill-percentage" style="color: #8b5cf6;">80%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-indicator accent-indicator" style="width: 80%;"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Git & Version Control</span>
+                <span class="skill-percentage" style="color: #8b5cf6;">95%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-indicator accent-indicator" style="width: 95%;"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Agile Methodologies</span>
+                <span class="skill-percentage" style="color: #8b5cf6;">90%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-indicator accent-indicator" style="width: 90%;"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Testing & QA</span>
+                <span class="skill-percentage" style="color: #8b5cf6;">80%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-indicator accent-indicator" style="width: 80%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="tools-container">
+        <h3 class="tools-title">Tools & Technologies</h3>
+        <div class="tools-grid">
+          <div class="tool-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tool-icon"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle><line x1="21.17" y1="8" x2="12" y2="8"></line><line x1="3.95" y1="6.06" x2="8.54" y2="14"></line><line x1="10.88" y1="21.94" x2="15.46" y2="14"></line></svg>
+            <span class="tool-name">React</span>
+          </div>
+          
+          <div class="tool-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tool-icon"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon><line x1="12" y1="22" x2="12" y2="15.5"></line><polyline points="22 8.5 12 15.5 2 8.5"></polyline><polyline points="2 15.5 12 8.5 22 15.5"></polyline><line x1="12" y1="2" x2="12" y2="8.5"></line></svg>
+            <span class="tool-name">Node.js</span>
+          </div>
+          
+          <div class="tool-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tool-icon"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+            <span class="tool-name">Python</span>
+          </div>
+          
+          <div class="tool-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tool-icon"><polyline points="8 3 12 7 16 3"></polyline><line x1="16" y1="21" x2="16" y2="7"></line><line x1="8" y1="21" x2="8" y2="12"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+            <span class="tool-name">JavaScript</span>
+          </div>
+          
+          <div class="tool-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tool-icon"><path d="M6 8.5L10.5 4L19 4L19 12.5L14.5 17L6 17L6 8.5Z"></path><path d="M14 6L18 6"></path><path d="M14 8L18 8"></path></svg>
+            <span class="tool-name">HTML5</span>
+          </div>
+          
+          <div class="tool-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tool-icon"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            <span class="tool-name">CSS3</span>
+          </div>
+          
+          <div class="tool-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tool-icon"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            <span class="tool-name">Git</span>
+          </div>
+          
+          <div class="tool-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tool-icon"><path d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7"></path></svg>
+            <span class="tool-name">Docker</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Projects Section -->
+  <section id="projects" class="section projects">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">My Projects</h2>
+        <div class="section-divider"></div>
+        <p class="section-description">Here are some of my recent projects. Each one presented unique challenges that helped me grow as a developer.</p>
+      </div>
+      
+      <div class="projects-filter">
+        <button class="filter-button filter-button-active" data-filter="all">All</button>
+        <button class="filter-button filter-button-inactive" data-filter="web">Web</button>
+        <button class="filter-button filter-button-inactive" data-filter="mobile">Mobile</button>
+        <button class="filter-button filter-button-inactive" data-filter="design">Design</button>
+      </div>
+      
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card" data-category="web">
+          <div class="project-image-container">
+            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80" alt="E-commerce Platform" class="project-image">
+            <div class="project-image-overlay">
+              <div>
+                <div class="project-tags">
+                  <span class="project-tag project-tag-primary">React</span>
+                  <span class="project-tag">Node.js</span>
+                  <span class="project-tag">MongoDB</span>
+                </div>
+                <h4 class="project-overlay-title">E-commerce Platform</h4>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h4 class="project-title">E-commerce Platform</h4>
+            <p class="project-description">A full-featured online store with product management, cart functionality, and payment processing.</p>
+            <div class="project-links">
+              <a href="#" class="project-link">
+                <span>View Project</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-link-icon"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+              <a href="#" class="project-link project-link-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-link-icon"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                <span>Code</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 2 -->
+        <div class="project-card" data-category="mobile">
+          <div class="project-image-container">
+            <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Fitness Tracking App" class="project-image">
+            <div class="project-image-overlay">
+              <div>
+                <div class="project-tags">
+                  <span class="project-tag project-tag-primary">React Native</span>
+                  <span class="project-tag">Firebase</span>
+                  <span class="project-tag">Redux</span>
+                </div>
+                <h4 class="project-overlay-title">Fitness Tracking App</h4>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h4 class="project-title">Fitness Tracking App</h4>
+            <p class="project-description">A mobile application to track workouts, nutrition, and personal fitness goals with progress analytics.</p>
+            <div class="project-links">
+              <a href="#" class="project-link">
+                <span>View Project</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-link-icon"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+              <a href="#" class="project-link project-link-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-link-icon"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                <span>Code</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 3 -->
+        <div class="project-card" data-category="design">
+          <div class="project-image-container">
+            <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Finance Dashboard UI" class="project-image">
+            <div class="project-image-overlay">
+              <div>
+                <div class="project-tags">
+                  <span class="project-tag project-tag-primary">Figma</span>
+                  <span class="project-tag">UI/UX</span>
+                  <span class="project-tag">Design System</span>
+                </div>
+                <h4 class="project-overlay-title">Finance Dashboard UI</h4>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h4 class="project-title">Finance Dashboard UI</h4>
+            <p class="project-description">A comprehensive design system and UI kit for financial analytics and wealth management platforms.</p>
+            <div class="project-links">
+              <a href="#" class="project-link">
+                <span>View Project</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-link-icon"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+              <a href="#" class="project-link project-link-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-link-icon"><external-link width="16" height="16"></external-link></svg>
+                <span>Prototype</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 4 -->
+        <div class="project-card" data-category="web">
+          <div class="project-image-container">
+            <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80" alt="AI Content Generator" class="project-image">
+            <div class="project-image-overlay">
+              <div>
+                <div class="project-tags">
+                  <span class="project-tag project-tag-primary">Next.js</span>
+                  <span class="project-tag">OpenAI API</span>
+                  <span class="project-tag">TailwindCSS</span>
+                </div>
+                <h4 class="project-overlay-title">AI Content Generator</h4>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h4 class="project-title">AI Content Generator</h4>
+            <p class="project-description">A web application that leverages AI to generate articles, social media posts, and marketing copy.</p>
+            <div class="project-links">
+              <a href="#" class="project-link">
+                <span>View Project</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-link-icon"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+              <a href="#" class="project-link project-link-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-link-icon"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                <span>Code</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 5 -->
+        <div class="project-card" data-category="mobile">
+          <div class="project-image-container">
+            <img src="https://images.unsplash.com/photo-1534723328310-e82dad3ee43f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1472&q=80" alt="Travel Companion App" class="project-image">
+            <div class="project-image-overlay">
+              <div>
+                <div class="project-tags">
+                  <span class="project-tag project-tag-primary">Flutter</span>
+                  <span class="project-tag">Firebase</span>
+                  <span class="project-tag">Google Maps API</span>
+                </div>
+                <h4 class="project-overlay-title">Travel Companion App</h4>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h4 class="project-title">Travel Companion App</h4>
+            <p class="project-description">A mobile app to help travelers plan trips, discover local attractions, and navigate new places with ease.</p>
+            <div class="project-links">
+              <a href="#" class="project-link">
+                <span>View Project</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-link-icon"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+              <a href="#" class="project-link project-link-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-link-icon"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                <span>Code</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 6 -->
+        <div class="project-card" data-category="web">
+          <div class="project-image-container">
+            <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Learning Management System" class="project-image">
+            <div class="project-image-overlay">
+              <div>
+                <div class="project-tags">
+                  <span class="project-tag project-tag-primary">React</span>
+                  <span class="project-tag">Express</span>
+                  <span class="project-tag">PostgreSQL</span>
+                </div>
+                <h4 class="project-overlay-title">Learning Management System</h4>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h4 class="project-title">Learning Management System</h4>
+            <p class="project-description">An educational platform with course creation, student progress tracking, and integrated assessment tools.</p>
+            <div class="project-links">
+              <a href="#" class="project-link">
+                <span>View Project</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-link-icon"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+              <a href="#" class="project-link project-link-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-link-icon"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                <span>Code</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Contact Section -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="section-divider"></div>
+        <p class="section-description">Have a project in mind or want to discuss opportunities? Feel free to reach out using the form below or through my social media channels.</p>
+      </div>
+      
+      <div class="contact-grid">
+        <div class="contact-form-container">
+          <h3 class="contact-form-title">Send a Message</h3>
+          <form action="https://formspree.io/f/xblojjye" method="POST">
+  <div class="form-group">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" id="email" name="email" class="form-input" placeholder="your.email@example.com" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="subject" class="form-label">Subject</label>
+    <input type="text" id="subject" name="subject" class="form-input" placeholder="What's this about?" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="message" class="form-label">Message</label>
+    <textarea id="message" name="message" class="form-textarea" rows="5" placeholder="Your message here..." required></textarea>
+  </div>
+  
+  <button type="submit" class="hero-button primary-button">Send Message</button>
+</form>
+
+        </div>
+        
+        <div class="contact-info-container">
+          <div class="contact-info">
+            <h3 class="contact-info-title">Contact Information</h3>
+            <div class="contact-info-list">
+              <div class="contact-info-item">
+                <div class="contact-icon-container" style="background-color: #dbeafe;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </div>
+                <div class="contact-item-content">
+                  <h4>Email</h4>
+                  <a href="mailto:ibrahimmganako@gmail.com">ibrahimmganako@gmail.com</a>
+                </div>
+              </div>
+              
+              <div class="contact-info-item">
+                <div class="contact-icon-container" style="background-color: #dcfce7;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                </div>
+                <div class="contact-item-content">
+                  <h4>Phone</h4>
+                  <a href="tel:+2348129840115">08129840115</a>
+                </div>
+              </div>
+              
+              <div class="contact-info-item">
+                <div class="contact-icon-container" style="background-color: #f3e8ff;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </div>
+                <div class="contact-item-content">
+                  <h4>Location</h4>
+                  <p>Minna Niger State, Nigeria</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="contact-social">
+              <h4>Connect with me</h4>
+              <div class="social-links">
+                <a href="https://github.com/Ganako-jr" class="social-link" target="_blank">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+                <a href="https://web.facebook.com/profile.php?id=61574323298151" class="social-link" target="_blank">
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M9 8H7v4h2v12h4V12h3.5l.5-4H13V5c0-.5.5-1 1-1h2V0h-3c-2 0-3 1-3 3v4h-2z"></path>
+</svg>
+       </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="contact-cta">
+            <h3 class="contact-cta-title">Looking for a developer?</h3>
+            <p class="contact-cta-text">I'm currently available for freelance work and open to new opportunities. Let's create something amazing together!</p>
+            <a href="Ibrahim_Ganako_Resume.pdf" class="cta-button" target="_blank">
+              Download Resume
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="cta-button-icon"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 class="footer-logo">Ibrahim Muhammad Ganako</h3>
+          <p class="footer-description">Turning ideas into digital reality with clean code and creative solutions.</p>
+          <p class="footer-description">Code Your Dreams™</p>
+          <div class="footer-social">
+            <a href="https://github.com/Ganako-jr" class="footer-social-link" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            </a>
+            <a href="https://web.facebook.com/profile.php?id=61574323298151" class="footer-social-link" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M9 8H7v4h2v12h4V12h3.5l.5-4H13V5c0-.5.5-1 1-1h2V0h-3c-2 0-3 1-3 3v4h-2z"></path>
+</svg>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li class="footer-link-item"><a href="#about" class="footer-link">About Me</a></li>
+            <li class="footer-link-item"><a href="#skills" class="footer-link">Skills</a></li>
+            <li class="footer-link-item"><a href="#projects" class="footer-link">Projects</a></li>
+            <li class="footer-link-item"><a href="#contact" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="footer-title">Newsletter</h3>
+          <p class="footer-description">Subscribe to my newsletter for the latest updates on projects and tech insights.</p>
+          <form class="footer-newsletter-form" action="https://formspree.io/f/xblojjye" method="POST">
+            <input type="email" name="email" placeholder="Enter your email" class="footer-input">
+            <button type="submit" class="footer-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="footer-copyright">
+        <p>© <span id="current-year">2025</span> Ibrahim Muhammad Ganako. All rights reserved.</p>
+        <p class="mt-2">Designed and built with ❤️ By Ibrahim Muhammad Ganako.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Update current year in the footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('navbar-scrolled');
+      } else {
+        navbar.classList.remove('navbar-scrolled');
+      }
+    });
+    
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('show');
+    });
+    
+    // Close mobile menu when clicking a link
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+    mobileMenuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('show');
+      });
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Project filtering
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Update active button
+        filterButtons.forEach(btn => {
+          btn.classList.remove('filter-button-active');
+          btn.classList.add('filter-button-inactive');
+        });
+        button.classList.remove('filter-button-inactive');
+        button.classList.add('filter-button-active');
+        
+        const filter = button.getAttribute('data-filter');
+        
+        // Filter projects
+        projectCards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+   
+  </script>
+</body>
+</html>
